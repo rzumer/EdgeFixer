@@ -15,11 +15,11 @@ clean:
 	rm -f $(OBJECTS) $(LIBNAME).a $(LIBNAME).so
 
 .PHONY: install
-install: all
-	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp $(LIBNAME).a $(DESTDIR)$(PREFIX)/bin
-	cp $(LIBNAME).so $(DESTDIR)$(PREFIX)/bin
+install:
+	mkdir -p $(DESTDIR)$(PREFIX)/lib
+	cp $(LIBNAME).a $(DESTDIR)$(PREFIX)/lib
+	cp $(LIBNAME).so $(DESTDIR)$(PREFIX)/lib
 
 .PHONY: uninstall
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/$(LIBNAME).a $(DESTDIR)$(PREFIX)/bin/$(LIBNAME).so
+	rm -f $(DESTDIR)$(PREFIX)/lib/$(LIBNAME).a $(DESTDIR)$(PREFIX)/lib/$(LIBNAME).so
