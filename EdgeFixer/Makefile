@@ -4,6 +4,8 @@ SOURCES=edgefixer.c vsplugin.c
 OBJECTS=$(SOURCES:.c=.o)
 LIBNAME=edgefixer
 PREFIX=/usr/local
+SHELL=/bin/bash
+.SHELLFLAGS="-O extglob -c"
 
 all:
 	$(CC) $(CFLAGS) $(SOURCES)
