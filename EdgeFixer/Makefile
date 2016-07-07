@@ -10,4 +10,4 @@ all:
 	$(CC) -shared -o $(LIBNAME).so $(OBJECTS)
 
 clean:
-	rm $(OBJECTS) $(LIBNAME).a $(LIBNAME).so
+	-rm -f $(OBJECTS) $(LIBNAME).a $(LIBNAME).so
