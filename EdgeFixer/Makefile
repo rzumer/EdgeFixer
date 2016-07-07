@@ -1,4 +1,13 @@
+CC=gcc
+CFLAGS=-c -std=c99 -Wall -fPIC
+SOURCES=edgefixer.c vsplugin.c
+OBJECTS=$(SOURCES:.c=.o)
+LIBNAME=edgefixer
+
 all:
-	gcc -c -std=c99 -Wall -fpic edgefixer.c vsplugin.c
-	ar cru edgefixer.a edgefixer.o vsplugin.o
-	gcc -shared -o edgefixer.so edgefixer.o vsplugin.o
+	$(CC) $(CFLAGS) $(SOURCES)
+	ar cru $(LIBNAME).a $(OBJECTS)
+	$(CC) -shared -o $(LIBNAME).so $(OBJECTS)
+
+clean:
+	rm $(OBJECTS) $(LIBNAME).a $(LIBNAME).so
