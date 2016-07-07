@@ -4,8 +4,6 @@ SOURCES=edgefixer.c vsplugin.c
 OBJECTS=$(SOURCES:.c=.o)
 LIBNAME=edgefixer
 PREFIX=/usr/local
-SHELL=/bin/bash
-.SHELLFLAGS="-O extglob -c"
 
 all:
 	$(CC) $(CFLAGS) $(SOURCES)
@@ -14,13 +12,13 @@ all:
 
 .PHONY: clean
 clean:
-	rm -f $(OBJECTS) $(LIBNAME){.a,.so}
+	rm -f $(OBJECTS) $(LIBNAME).a $(LIBNAME).so
 
 .PHONY: install
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp $< $(DESTDIR)$(PREFIX)/bin $(LIBNAME){.a,.so}
+	cp $< $(DESTDIR)$(PREFIX)/bin $(LIBNAME).a $(LIBNAME).so
 
 .PHONY: uninstall
 uninstall:
-	rm -f $(DESTDIR)$(PREFIX)/bin/$(LIBNAME){.a,.so}
+	rm -f $(DESTDIR)$(PREFIX)/bin/$(LIBNAME).a $(DESTDIR)$(PREFIX)/bin/$(LIBNAME).so
