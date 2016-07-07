@@ -17,7 +17,8 @@ clean:
 .PHONY: install
 install: all
 	mkdir -p $(DESTDIR)$(PREFIX)/bin
-	cp $< $(DESTDIR)$(PREFIX)/bin $(LIBNAME).a $(LIBNAME).so
+	cp $(LIBNAME).a $(DESTDIR)$(PREFIX)/bin
+	cp $(LIBNAME).so $(DESTDIR)$(PREFIX)/bin
 
 .PHONY: uninstall
 uninstall:
